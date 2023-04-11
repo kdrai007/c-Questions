@@ -16,8 +16,28 @@ public:
 };
 int maxwidth(Node *root)
 {
-    //
-    return 0;
+    if (root == NULL)
+        return 0;
+    int res = 0;
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+    while (!q.empty())
+    {
+        int count = q.size();
+        res = max(count, res);
+        for (int i = 0; i < count; i++)
+        {
+            Node *curr = q.front();
+            q.pop();
+
+            if (curr->left)
+                q.push(curr->left);
+            if (curr->right)
+                q.push(curr->right);
+        }
+    }
+    return res;
 }
 int main()
 {
