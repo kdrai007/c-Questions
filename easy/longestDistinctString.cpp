@@ -1,25 +1,29 @@
 #include <iostream>
+#include <unoderd_map>
 #include <string>
 
 using namespace std;
 
-int longestDinstinct(string s) {
-  int dCount = 0;
-  int maxCount = 0;
-  for (int i = 0; i < s.size() - 1; i++) {
-    if (s[i] != s[i + 1])
-      dCount++;
-    else if (s[i] == s[i + 1])
-      dCount = 0;
-    cout << dCount << " ";
-    maxCount = max(dCount, maxCount);
+int longestDinstinct(string s)
+{
+  unordered_map<char, int> a;
+  int n = S.length();
+  int j = 0, i = 0, m = 0;
+  for (int i = 0; i < n; i++)
+  {
+    a[S[i]]++;
+    while (a[S[i]] > 1)
+    {
+      a[S[j]]--;
+      j++;
+    }
+    m = max(m, i - j + 1);
   }
-  cout << endl;
-  if(maxCount==0)return 1;
-  return maxCount;
+  return m;
 }
 
-int main() {
+int main()
+{
   string str;
   cin >> str;
   cout << longestDinstinct(str);
