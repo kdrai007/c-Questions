@@ -20,14 +20,20 @@ void insertNode(Node * &root,int val){
     root=temp;
 }
 void removeNode(Node * &root,int pos){
+    if(pos==1){
+        root=root->next;
+        return;
+    }
     int idx=0;
     Node * curr;
     Node * temp=root;
-    while(idx!=pos){
+    Node * prev=NULL;
+    while(idx<pos-1){
+        if(temp==NULL)return;
         idx++;
+        prev=temp;
         temp=temp->next;
     }
-    cout<<temp->val;
 }
 void printNode(Node * root){
     Node * temp=root;
@@ -39,12 +45,16 @@ void printNode(Node * root){
 }
 
 int main() {
+cout<<"Enter position to delete"<<endl;
+int pos;
+cin>>pos;
   Node *n = new Node(15);
   int i=10;
   while(i--){
       insertNode(n,i);
   }
   printNode(n);
-  removeNode(n,3);
+  removeNode(n,pos);
+  printNode(n);
   return 0;
 }
