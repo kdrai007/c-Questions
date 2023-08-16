@@ -1,0 +1,10 @@
+date->16 aug
+
+questions: 1- choose and swap
+
+date->17 aug
+
+questions: 2-delete a Node in linked list
+           3-delete a Nod  in Middle of Linked List
+           
+
