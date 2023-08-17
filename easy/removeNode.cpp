@@ -19,21 +19,24 @@ void insertNode(Node * &root,int val){
     temp->next=root;
     root=temp;
 }
-void removeNode(Node * &root,int pos){
+Node * removeNode(Node * root,int pos){
     if(pos==1){
         root=root->next;
-        return;
+        return root;
     }
     int idx=0;
     Node * curr;
     Node * temp=root;
     Node * prev=NULL;
     while(idx<pos-1){
-        if(temp==NULL)return;
-        idx++;
+        if(temp==NULL)return root;
         prev=temp;
         temp=temp->next;
+        idx++;
     }
+    prev->next=temp->next;
+    return root;
+
 }
 void printNode(Node * root){
     Node * temp=root;
@@ -54,7 +57,7 @@ cin>>pos;
       insertNode(n,i);
   }
   printNode(n);
-  removeNode(n,pos);
+n=removeNode(n,pos);
   printNode(n);
   return 0;
 }
