@@ -6,5 +6,5 @@ date->17 aug
 
 questions: 2-delete a Node in linked list
            3-delete a Nod  in Middle of Linked List
-           
+not done           
 
