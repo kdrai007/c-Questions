@@ -1,19 +1,16 @@
 #include <iostream>
-#include <unoderd_map>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
-int longestDinstinct(string s)
-{
+int longestDinstinct(string S) {
   unordered_map<char, int> a;
   int n = S.length();
   int j = 0, i = 0, m = 0;
-  for (int i = 0; i < n; i++)
-  {
+  for (int i = 0; i < n; i++) {
     a[S[i]]++;
-    while (a[S[i]] > 1)
-    {
+    while (a[S[i]] > 1) {
       a[S[j]]--;
       j++;
     }
@@ -22,8 +19,7 @@ int longestDinstinct(string s)
   return m;
 }
 
-int main()
-{
+int main() {
   string str;
   cin >> str;
   cout << longestDinstinct(str);
