@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #taking the input for the filname
 buildFile=$1
