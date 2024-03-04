@@ -3,29 +3,30 @@
 using namespace std;
 
 void merge(int arr[], int n, int brr[], int m) {
-  vector<int> v;
-  int i = 0, j = 0;
-  while (j < m || i < n) {
-    if (arr[i] <= brr[j]) {
-      arr[i] = arr[i];
-      i++;
+  int i = n - 1;
+  int j = m - 1;
+  int k = n + m - 1;
+  while (j >= 0) {
+    if (i >= 0 && arr[i] >= brr[j]) {
+      arr[k] = arr[i];
+      i--;
     } else {
-        arr[i]=
-      j++;
+      arr[k] = brr[j];
+      j--;
     }
+    k--;
   }
-  for (int idx = 0; idx < n; idx++) {
-    cout << arr[idx] << " ";
+  for (int i = 0; i < m + n; i++) {
+    cout << arr[i] << " ";
   }
 }
 
 int main() {
-  int a[] = {1, 2, 3, 0, 0, 0};
-  int b[] = {1, 2, 3};
+  int a[] = {1, 2, 3, 0, 0, 0, 0};
+  int b[] = {1, 2, 3, 4};
 
-  int n = sizeof(a) / sizeof(a[0]);
   int m = sizeof(b) / sizeof(b[0]);
 
-  merge(a, n, b, m);
+  merge(a, 3, b, m);
   return 0;
 }
