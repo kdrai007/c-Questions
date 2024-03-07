@@ -23,3 +23,5 @@ int32_t main()
     isIsomorphic("bool", "tool");
     return 0;
 }
+
+
