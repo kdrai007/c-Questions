@@ -7,6 +7,7 @@ bool luckyNumber(int n,int r) {
         return true;
     }
     if(n%r==0)return 0;
+
     else{
         return luckyNumber(n-n/r,r+1);
     }

@@ -5,8 +5,12 @@ buildFile=$1
 buildFile_without_extension="${buildFile%.*}"
 
 #script for creating .exe for .cpp file 
-g++ $buildFile -o builds/$buildFile_without_extension
 
-#running the script file 
-./builds/$buildFile_without_extension
+mkdir -p builds
+
+g++ $buildFile -o "builds/$buildFile_without_extension"
+
+if [ $? -eq 0 ]; then
+	./builds/"$buildFile_without_extension"
+fi
 
