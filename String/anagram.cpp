@@ -3,7 +3,7 @@ using namespace std;
 
 bool anagram(string a, string b)
 {
-    unordered_map<int, int> ma, mb;
+    unordered_map<char, int> ma, mb;
     if (a.length() != b.length())
         return false;
     for (int i = 0; i < a.length(); i++)
@@ -11,18 +11,14 @@ bool anagram(string a, string b)
         ma[a[i]]++;
         mb[b[i]]++;
     }
-    for (auto x : a)
-    {
-        if (ma[x] != mb[x])
-            return false;
-        }
 
-    return true;
+    if(ma==mb)return true;
+    return false;
 }
 
 int32_t main()
 {
-    anagram("ddpg", "gpdd");
+   cout<< anagram("dd", "gg");
     return 0;
 }
 
