@@ -1,28 +1,25 @@
 #include <algorithm>
-#include <iostream>
 #include <string>
 #include <unordered_map>
 #include <vector>
 using namespace std;
 
 vector<vector<string>> groupAnagrams(vector<string> &strs) {
+  // init - the data structures
   vector<vector<string>> containsAnagram;
   unordered_map<string, vector<string>> ms;
-  for (int i = 0; i < strs.size(); i++) {
-    string word = strs[i];
+  // store the key,value pairs in the map.
+  for (string word : strs) {
     string key = word;
+    // sorting the key
     sort(key.begin(), key.end());
+    // pushing the words that matches the sorted str
     ms[key].push_back(word);
   }
 
-  for (auto x : ms) {
-    containsAnagram.push_back(x.second);
-    for (int i = 0; i < x.second.size(); i++) {
-      cout << x.second[i];
-      cout << " , ";
-    }
-    cout << endl;
-  }
+  for (auto &[key, value] : ms)
+    // now, let's just push the value in the containsAnagram vector.
+    containsAnagram.push_back(value);
   return containsAnagram;
 }
 
