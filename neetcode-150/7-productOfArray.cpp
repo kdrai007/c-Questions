@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-vector<int> productExceptSelf_1(vector<int> &nums) {
+vector<int> productExceptSelf(vector<int> &nums) {
   int n = nums.size();
   vector<int> output(n, 0);
 
@@ -31,6 +31,23 @@ vector<int> productExceptSelf_1(vector<int> &nums) {
     }
   }
   return output;
+}
+
+vector<int> productExceptSelf_1(vector<int> &nums) {
+  int n = nums.size();
+  vector<int> res(n, 1);
+  vector<int> suf(n);
+  vector<int> pre(n);
+
+  pre[0] = 1, suf[n - 1] = 1;
+
+  for (int i = 0; i < n; i++) {
+  }
+
+  for (int i = 0; i < n; i++) {
+  }
+
+  return res;
 }
 
 int main() {
