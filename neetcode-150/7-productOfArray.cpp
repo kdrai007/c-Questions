@@ -35,24 +35,27 @@ vector<int> productExceptSelf(vector<int> &nums) {
 
 vector<int> productExceptSelf_1(vector<int> &nums) {
   int n = nums.size();
-  vector<int> res(n, 1);
-  vector<int> suf(n);
-  vector<int> pre(n);
+  vector<int> res(n);
+  vector<int> pref(n);
+  vector<int> suff(n);
 
-  pre[0] = 1, suf[n - 1] = 1;
-
-  for (int i = 0; i < n; i++) {
+  pref[0] = 1;
+  suff[n - 1] = 1;
+  for (int i = 1; i < n; i++) {
+    pref[i] = nums[i - 1] * pref[i - 1];
   }
-
-  for (int i = 0; i < n; i++) {
+  for (int i = n - 2; i >= 0; i--) {
+    suff[i] = nums[i + 1] * suff[i + 1];
   }
-
+  for (int i = 0; i < n; i++) {
+    res[i] = pref[i] * suff[i];
+  }
   return res;
 }
 
 int main() {
   cout << "Product Of Array Except Self: \n";
-  vector<int> nums = {-1, 0, 1, 2, 3};
+  vector<int> nums = {1, 2, 3, 4};
   vector<int> output = productExceptSelf_1(nums);
 
   cout << "[ ";
