@@ -7,13 +7,20 @@ bool validPalindrome(string str) {
   int left = 0;
   int right = str.size() - 1;
   while (left < right) {
-    if (!isalnum(str[left]))
+    // skip non-alphanumeric characters from the left
+    while (left < right &&
+           !std::isalnum(static_cast<unsigned char>(str[left]))) {
       left++;
-    if (!isalnum(str[right]))
+    }
+    // Skip non-alphanumeric characters from the right
+    while (left < right &&
+           !std::isalnum(static_cast<unsigned char>(str[right]))) {
       right--;
+    }
 
     if (tolower(str[left]) != tolower(str[right]))
       return false;
+
     left++;
     right--;
   }
